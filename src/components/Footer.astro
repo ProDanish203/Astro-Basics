@@ -1,15 +1,15 @@
 ---
-// import { getCollection } from "astro:content";
-// import type { CollectionEntry } from "astro:content";
-// import { capitalize } from "../utils";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { capitalize } from "../utils";
 
-// const allBlogArticles: CollectionEntry<"blog">[] = await getCollection("blog");
+const allBlogArticles: CollectionEntry<"blog">[] = await getCollection("blog");
 
-// const tags: string[] = allBlogArticles.flatMap(
-//   (article: any) => article.data.tags
-// );
+const tags: string[] = allBlogArticles.flatMap(
+  (article: any) => article.data.tags
+);
 
-// const uniqueTags: string[] = [...new Set(tags)];
+const uniqueTags: string[] = [...new Set(tags)];
 ---
 
 <footer class="bg-indigo-900 text-white">
@@ -26,13 +26,13 @@
       <div class="mt-10">
         <h3 class="text-xl font-semibold mb-4">Categories</h3>
         <ul class="text-white text-sm">
-          <!-- {
+          {
             uniqueTags.map((tag) => (
               <li class="mb-2">
                 <a href={"/articles/tag/" + tag}>#{capitalize(tag)}</a>
               </li>
             ))
-          } -->
+          }
         </ul>
       </div>
       <div class="mt-10">
